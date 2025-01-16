@@ -3,11 +3,50 @@ function playGame() {
 
     let humanScore = 0;
     let computerScore = 0;
+    const totalRounds = 5
+    let currentRound = 0
 
-    function getHumanChoice() {
-        let userAnswer = window.prompt("Choose your weapon", "Rock, Paper, Scissors");
-        return userAnswer
+    const buttons = document.querySelector("#buttons");
+    let humanChoice;
+
+    const scoreSection = document.querySelector("#section");
+    const finalScore = document.createElement("p");
+    scoreSection.appendChild(finalScore);
+    updateScore(); 
+
+    buttons.addEventListener("click", (event) => {
+    if (currentRound >= totalRounds) {
+        alert("Игра завершена");
+        return;
     }
+
+    const target = event.target
+    switch(target.id) {
+        case 'btnRock':
+            console.log('Rock');
+            humanChoice = "Rock"
+            break;
+        case 'btnPaper':
+            console.log('Paper');
+            humanChoice = "Paper"
+            break;
+        case 'btnScissors':
+            console.log('Scissors');
+            humanChoice = "Scissors"
+            break;
+        default: return;
+        }
+
+        if (humanChoice) {
+            const computerChoice = getComputerChoice()
+            playRound (humanChoice, computerChoice)
+            currentRound++
+            updateScore()
+        }
+        if (currentRound === totalRounds) {
+            declareWinner()
+        }
+    })
 
     function getComputerChoice() {
         let computerAnswer = Math.random();
@@ -48,13 +87,22 @@ function playGame() {
             alert("Choose correct weapon")
         };
     }
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
-    playRound(getHumanChoice(), getComputerChoice());
 
-    alert(`Final Scores:\nHuman: ${humanScore}\nComputer: ${computerScore}`);
+    function declareWinner() {
+        if (humanScore > computerScore) {
+            alert(`Игра завершена! Вы победили! Итоговый счёт: Человек ${humanScore}, Компьютер ${computerScore}`);
+        }
+        else if (humanScore <computerScore) {
+            alert(`Игра завершена! Вы проиграли! Итоговый счёт: Человек ${humanScore}, Компьютер ${computerScore}`);
+        }
+        else {
+            alert(`Игра завершена! Ничья! Итоговый счёт: Человек ${humanScore}, Компьютер ${computerScore}`);
+        }
+    }
+
+    function updateScore() {
+        finalScore.textContent = `Current Scores:\nHuman: ${humanScore}\nComputer: ${computerScore}`;
+    }
+
 }
-
-playGame();
+playGame()
