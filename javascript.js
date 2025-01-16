@@ -9,6 +9,10 @@ function playGame() {
     const buttons = document.querySelector("#buttons");
     let humanChoice;
 
+    let yourScore = document.querySelector("#yourscore")
+    let compScore = document.querySelector("#compscore") 
+    let description = document.querySelector("#description")
+
     const scoreSection = document.querySelector("#section");
     const finalScore = document.createElement("p");
     scoreSection.appendChild(finalScore);
@@ -16,7 +20,8 @@ function playGame() {
 
     buttons.addEventListener("click", (event) => {
     if (currentRound >= totalRounds) {
-        alert("Игра завершена");
+        // alert("Игра завершена"); 
+        description.textContent = "The game is over"
         return;
     }
 
