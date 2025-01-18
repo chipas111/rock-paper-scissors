@@ -6,7 +6,7 @@ function playGame() {
     const totalRounds = 5
     let currentRound = 0
 
-    const buttons = document.querySelector("#buttons");
+    const buttons = document.querySelector(".buttons-section");
     let humanChoice;
 
     let humanWeapon = document.querySelector("#humanweapon")
@@ -17,22 +17,22 @@ function playGame() {
 
     buttons.addEventListener("click", (event) => {
     if (currentRound >= totalRounds) {
-        description.textContent = "The game is over, reload browser to play again"
+        description.textContent = "Reload browser to play again"
         return;
     }
 
     const target = event.target
     switch(target.id) {
         case 'btnRock':
-            humanWeapon.textContent = "Your weapon: Rock"
+            humanWeapon.textContent = "Rock"
             humanChoice = "Rock"
             break;
         case 'btnPaper':
-            humanWeapon.textContent = "Your weapon: Paper"
+            humanWeapon.textContent = "Paper"
             humanChoice = "Paper"
             break;
         case 'btnScissors':
-            humanWeapon.textContent = "Your weapon: Scissors"
+            humanWeapon.textContent = "Scissors"
             humanChoice = "Scissors"
             break;
         default: return;
@@ -67,36 +67,36 @@ function playGame() {
         if (normHumanChoice === "scissors" && normComputerChoice === "paper") {
             humanScore++
             description.textContent = "You Won! Scissors beats Paper!"
-            compWeapon.textContent = "Computer weapon: Paper"
+            compWeapon.textContent = "Paper"
 
         } else if (normHumanChoice === "scissors" && normComputerChoice === "rock") {
             computerScore++
             description.textContent = "You Lose! Rock beats Scissors"
-            compWeapon.textContent = "Computer weapon: Rock"
+            compWeapon.textContent = "Rock"
 
         } else if (normHumanChoice === "rock" && normComputerChoice === "paper") {
             computerScore++
             description.textContent = "You Lose! Paper beats Rock"
-            compWeapon.textContent = "Computer weapon: Paper"
+            compWeapon.textContent = "Paper"
 
         } else if (normHumanChoice === "rock" && normComputerChoice === "scissors") {
             humanScore++
             description.textContent = "You Won! Rock beats Scissors!"
-            compWeapon.textContent = "Computer weapon: Scissors"
+            compWeapon.textContent = "Scissors"
 
         } else if (normHumanChoice === "paper" && normComputerChoice === "scissors") {
             computerScore++
             description.textContent = "You Lose! Scissors beats Paper!"
-            compWeapon.textContent = "Computer weapon: Scissors"
+            compWeapon.textContent = "Scissors"
 
         } else if (normHumanChoice === "paper" && normComputerChoice === "rock") {
             humanScore++
             description.textContent = "You Won! Paper beats Rock!"
-            compWeapon.textContent = "Computer weapon: Rock"
+            compWeapon.textContent = "Rock"
 
         } else if (normHumanChoice === normComputerChoice) {
             description.textContent = "Its a Tie!"
-            compWeapon.textContent = "Computer weapon: " + humanChoice
+            compWeapon.textContent = humanChoice
 
         } else {
             description.textContent = "Choose correct weapon"
@@ -111,13 +111,13 @@ function playGame() {
             description.textContent = `The game is finished! You lose!`;
         }
         else {
-            description.textContent = `Игра завершена! Ничья!`;
+            description.textContent = `The game is finished! It's! a Tie`;
         }
     }
 
     function updateScore() {
-        yourScore.textContent = `Current Scores:\nHuman: ${humanScore}`;
-        compScore.textContent = `Current Scores:\nComputer: ${computerScore}`;
+        yourScore.textContent = humanScore
+        compScore.textContent = computerScore
     }
 
 }

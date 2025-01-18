@@ -4,11 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" src="styles.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="javascript.js" defer></script>
 </head>
 <body>
-    <div id="buttons">
+
+    <div class="section-nintendo">
+        <img src="./images/pic-menu.png">
+
+        <div class="screen-section">
+
+            <div class="battery-wrapper">
+                <div class="battery-indicator"></div>
+                <p>BATTERY</p>
+            </div>
+
+            <div class="screen-display">
+                <h2 id="description">Choose your weapon!</h2>
+
+                <div class="screen-content">
+                    <div class="human-content">
+                        <p class="content-title">YOUR WEAPON</p>
+                        <p class="weapon-title" id="humanweapon">--</p>
+                        <p class="content-title">YOUR SCORE</p>
+                        <p class="score-display" id="yourscore">0</p>
+                    </div>
+
+                    <div class="comp-content">
+                        <p class="content-title">COMP WEAPON</p>
+                        <p class="weapon-title" id="compweapon">--</p>
+                        <p class="content-title">COMP SCORE</p>
+                        <p class="score-display" id="compscore">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons-section">
+
+            <div class="button-wrapper">
+                <button id="btnRock">
+                    <img src="./images/icon-rock.svg">
+                </button>
+                <p>Rock</p>
+            </div>
+
+            <div class="button-wrapper">
+                <button id="btnPaper">
+                    <img src="./images/icon-paper.svg">
+                </button>
+                <p>Paper</p>
+            </div>
+
+            <div class="button-wrapper">
+                <button id="btnScissors">
+                    <img src="./images/icon-scissors.svg">
+                </button>
+                 <p>Scissors</p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <div id="buttons">
         <button id="btnRock">Rock</button>
         <button id="btnPaper">Paper</button>
         <button id="btnScissors">Scissors</button>
@@ -20,6 +78,6 @@
         <p id="compweapon">Computer weapon</p>
         <p id="yourscore">Your score: 0</p>
         <p id="compscore">Comp score: 0</p>
-    </div>
+    </div> -->
 </body>
 </html>
